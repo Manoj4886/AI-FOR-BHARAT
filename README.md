@@ -1,11 +1,11 @@
-# 🚀 Bolt AI Tutor (Saarathi App)
+#  Bolt AI Tutor (Saarathi App)
 
 AI-Powered Real-Time Personalized Video Learning Platform  
 Built for AWS AI for Bharat Hackathon 2026
 
 ---
 
-## 📌 Overview
+##  Overview
 
 Bolt AI Tutor is an AI-powered learning platform that transforms passive video education into an interactive, personalized, two-way learning experience.
 
@@ -19,7 +19,7 @@ Designed specifically for students and developers across India 🇮🇳
 
 ---
 
-## 🎯 Problem Statement
+##  Problem Statement
 
 Current learning platforms:
 - Provide static, pre-recorded content
@@ -31,21 +31,21 @@ Learning is scalable, but not personalized.
 
 ---
 
-## 💡 Our Solution
+##  Our Solution
 
 Bolt AI Tutor introduces:
 
-- 🎥 Real-time AI-generated video teaching
-- 🧠 Adaptive personalization engine
-- 🎤 Voice-based doubt interaction
-- 📊 Learning analytics dashboard
-- 🌍 Scalable AWS-native cloud architecture
+-  Real-time AI-generated video teaching
+-  Adaptive personalization engine
+-  Voice-based doubt interaction
+-  Learning analytics dashboard
+-  Scalable AWS-native cloud architecture
 
 An AI mentor that teaches like a human and adapts like a coach.
 
 ---
 
-## 🏗 System Architecture
+##  System Architecture
 
 The system follows a layered architecture:
 
@@ -59,35 +59,35 @@ For detailed architecture, refer to `design.md`.
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
-### 🧠 AI Services
+###  AI Services
 - Amazon Bedrock (LLM)
 - Amazon Transcribe (Speech-to-Text)
 - Amazon Polly (Text-to-Speech)
 
-### ☁ Cloud
+###  Cloud
 - AWS EC2
 - AWS Lambda
 - Amazon API Gateway
 - Amazon CloudFront
 
-### 💾 Database & Storage
+###  Database & Storage
 - Amazon DynamoDB
 - Amazon S3
 
-### 🌐 Frontend
+###  Frontend
 - React.js (Web)
 - Flutter (Mobile)
 
-### 🔐 Security
+###  Security
 - AWS IAM
 - JWT Authentication
 - HTTPS Encryption
 
 ---
 
-## 🔄 Core Features
+##  Core Features
 
 - Smart onboarding & skill detection
 - AI-generated dynamic lessons
@@ -100,7 +100,7 @@ For detailed architecture, refer to `design.md`.
 
 ---
 
-## 📊 Estimated Cost (MVP)
+##  Estimated Cost (MVP)
 
 ₹12,000 – ₹15,000 per month (AWS-based)
 
@@ -108,7 +108,7 @@ Covered using AWS Hackathon Credits during development phase.
 
 ---
 
-## 🚀 Getting Started (Development Setup)
+##  Getting Started (Development Setup)
 
 ### Prerequisites
 - Python 3.10+
