@@ -1,11 +1,11 @@
-# 📌 Bolt AI Tutor (Saarathi App)
+#  Bolt AI Tutor (Saarathi App)
 
 AI-Powered Real-Time Personalized Video Learning Platform  
 Built for AWS AI for Bharat Hackathon
 
 ---
 
-# 1️⃣ Project Overview
+# 1️ Project Overview
 
 Bolt AI Tutor is an AI-powered learning platform that provides a realistic video-based AI mentor capable of:
 
@@ -18,7 +18,7 @@ The system transforms passive video learning into an intelligent, two-way adapti
 
 ---
 
-# 2️⃣ Functional Requirements
+# 2️ Functional Requirements
 
 ## 2.1 User Management
 - User Registration & Login
@@ -53,7 +53,7 @@ The system transforms passive video learning into an intelligent, two-way adapti
 
 ---
 
-# 3️⃣ Non-Functional Requirements
+# 3️ Non-Functional Requirements
 
 - Scalable cloud architecture (AWS-native)
 - Low latency response
@@ -64,7 +64,7 @@ The system transforms passive video learning into an intelligent, two-way adapti
 
 ---
 
-# 4️⃣ System Architecture Requirements
+# 4️ System Architecture Requirements
 
 ## Frontend
 - React.js (Web)
@@ -93,7 +93,7 @@ The system transforms passive video learning into an intelligent, two-way adapti
 
 ---
 
-# 5️⃣ Hardware Requirements
+# 5️ Hardware Requirements
 
 ## Development Environment
 - 8GB RAM minimum
@@ -106,7 +106,7 @@ The system transforms passive video learning into an intelligent, two-way adapti
 
 ---
 
-# 6️⃣ Software Requirements
+# 6️ Software Requirements
 
 - Python 3.10+
 - Node.js 18+
@@ -116,7 +116,7 @@ The system transforms passive video learning into an intelligent, two-way adapti
 
 ---
 
-# 7️⃣ Future Enhancements
+# 7️ Future Enhancements
 
 - AR/VR Classroom Mode
 - AI Interview Trainer
@@ -126,14 +126,14 @@ The system transforms passive video learning into an intelligent, two-way adapti
 
 ---
 
-# 8️⃣ Estimated Cost (MVP)
+# 8️ Estimated Cost (MVP)
 
 - ₹12,000 – ₹15,000 per month (AWS-based)
 - Covered under AWS Hackathon Credits during development
 
 ---
 
-# 9️⃣ Target Users
+# 9️ Target Users
 
 - School Students
 - College Students
@@ -143,10 +143,11 @@ The system transforms passive video learning into an intelligent, two-way adapti
 
 ---
 
-# 🔟 Vision
+# 10 Vision
 
 "Every student in India should have access to a personal AI mentor."
 
 ---
 
 © 2026 Bolt AI Tutor – AI for Bharat Hackathon
+
