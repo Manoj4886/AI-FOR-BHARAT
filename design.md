@@ -1,10 +1,10 @@
-# 📐 Bolt AI Tutor (Saarathi App) – System Design Document
+#  Bolt AI Tutor (Saarathi App) – System Design Document
 
 AI for Bharat Hackathon Submission
 
 ---
 
-# 1️⃣ Design Overview
+# 1️ Design Overview
 
 Bolt AI Tutor is designed as a scalable, cloud-native AI learning platform that delivers real-time personalized video-based teaching using AWS AI services.
 
@@ -19,7 +19,7 @@ The system follows a modular, layered architecture to ensure:
 
 ---
 
-# 2️⃣ High-Level Architecture
+# 2️ High-Level Architecture
 
 The system is divided into 5 primary layers:
 
@@ -31,7 +31,7 @@ The system is divided into 5 primary layers:
 
 ---
 
-# 3️⃣ System Architecture Design
+# 3️ System Architecture Design
 
 ## 3.1 User Layer
 
@@ -94,20 +94,20 @@ Responsibilities:
 
 Core Components:
 
-### 1️⃣ Content Generation Engine
+### 1. Content Generation Engine
 - Amazon Bedrock (LLM)
 - Generates structured lessons dynamically
 
-### 2️⃣ Speech Processing
+### 2️. Speech Processing
 - Amazon Transcribe (Speech-to-Text)
 - Amazon Polly (Text-to-Speech)
 
-### 3️⃣ Personalization Engine
+### 3️. Personalization Engine
 - Skill-level detection
 - Learning pattern analysis
 - Adaptive difficulty control
 
-### 4️⃣ Avatar Video Engine
+### 4️. Avatar Video Engine
 - Converts AI-generated content into realistic video format
 - Synchronizes voice with avatar rendering
 
@@ -128,7 +128,7 @@ Responsibilities:
 
 ---
 
-# 4️⃣ Design Flow
+# 4️ Design Flow
 
 ## Step 1:
 User selects topic & level
@@ -153,7 +153,7 @@ Performance stored & personalization updated
 
 ---
 
-# 5️⃣ Data Flow Design
+# 5️ Data Flow Design
 
 User Input  
 → API Gateway  
@@ -168,7 +168,7 @@ Analytics stored in DynamoDB.
 
 ---
 
-# 6️⃣ Scalability Design
+# 6️ Scalability Design
 
 - Auto-scaling EC2 instances
 - AWS Lambda for serverless operations
@@ -179,7 +179,7 @@ Designed to support 10,000+ concurrent users.
 
 ---
 
-# 7️⃣ Security Design
+# 7️ Security Design
 
 - JWT-based authentication
 - AWS IAM role-based access control
@@ -189,7 +189,7 @@ Designed to support 10,000+ concurrent users.
 
 ---
 
-# 8️⃣ Performance Optimization Strategy
+# 8️ Performance Optimization Strategy
 
 - AI response caching
 - Video pre-rendering for popular lessons
@@ -199,7 +199,7 @@ Designed to support 10,000+ concurrent users.
 
 ---
 
-# 9️⃣ Design Constraints
+# 9️ Design Constraints
 
 - Cost optimization (Hackathon budget)
 - Low latency for AI response
@@ -208,7 +208,7 @@ Designed to support 10,000+ concurrent users.
 
 ---
 
-# 🔟 Future Design Enhancements
+# 10 Future Design Enhancements
 
 - AR/VR classroom integration
 - Offline learning sync mode
@@ -218,7 +218,7 @@ Designed to support 10,000+ concurrent users.
 
 ---
 
-# 📌 Conclusion
+#  Conclusion
 
 The system design ensures modularity, scalability, and efficient AI-driven content delivery using AWS cloud services.
 
@@ -227,3 +227,4 @@ Bolt AI Tutor is architected to transform passive learning into an intelligent, 
 ---
 
 © 2026 Bolt AI Tutor – AI for Bharat Hackathon
+
