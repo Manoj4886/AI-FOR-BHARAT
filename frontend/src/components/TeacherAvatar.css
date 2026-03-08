@@ -1,0 +1,570 @@
+/* ═══════════════════════════════════════════════════════════════
+   TeacherAvatar.css  –  2D teacher avatar animation system
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Container ──────────────────────────────────────────────── */
+.ta-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    user-select: none;
+}
+
+/* ─── Base image ─────────────────────────────────────────────── */
+.ta-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 18px;
+    object-fit: cover;
+    filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.28));
+    transition: filter 0.4s;
+}
+
+/* Glow ring around image based on state */
+.ta-wrap.ta-explaining .ta-image {
+    filter: drop-shadow(0 0 18px #818cf8aa) drop-shadow(0 8px 32px rgba(0, 0, 0, 0.28));
+}
+
+.ta-wrap.ta-smile .ta-image {
+    filter: drop-shadow(0 0 18px #34d399aa) drop-shadow(0 8px 32px rgba(0, 0, 0, 0.28));
+}
+
+.ta-wrap.ta-pointBoard .ta-image {
+    filter: drop-shadow(0 0 18px #f59e0baa) drop-shadow(0 8px 32px rgba(0, 0, 0, 0.28));
+}
+
+.ta-wrap.ta-surprised .ta-image {
+    filter: drop-shadow(0 0 18px #f87171aa) drop-shadow(0 8px 32px rgba(0, 0, 0, 0.28));
+}
+
+.ta-wrap.ta-serious .ta-image {
+    filter: drop-shadow(0 0 14px #64748baa) drop-shadow(0 8px 32px rgba(0, 0, 0, 0.28));
+}
+
+/* ─── Overlay canvas (sits above image) ──────────────────────── */
+.ta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+/* ─── Status badge ───────────────────────────────────────────── */
+.ta-badge {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 15, 30, 0.85);
+    border: 1px solid rgba(129, 140, 248, 0.35);
+    border-radius: 24px;
+    padding: 6px 18px;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    color: #a5b4fc;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+.ta-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #6366f1;
+    box-shadow: 0 0 8px #6366f1;
+    transition: background 0.3s;
+}
+
+.ta-badge-dot.active {
+    animation: dotPulse 1.2s ease-in-out infinite;
+}
+
+/* ─── HEAD MOTION OVERLAY ────────────────────────────────────── */
+.ta-head-motion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Nod */
+.ta-wrap.ta-nod .ta-image {
+    animation: nodHead 0.5s ease-in-out 3;
+    transform-origin: 50% 30%;
+}
+
+@keyframes nodHead {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(8deg);
+    }
+
+    75% {
+        transform: rotate(-3deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Shake */
+.ta-wrap.ta-shake .ta-image {
+    animation: shakeHead 0.45s ease-in-out 3;
+    transform-origin: 50% 25%;
+}
+
+@keyframes shakeHead {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-12px) rotate(-4deg);
+    }
+
+    40% {
+        transform: translateX(12px) rotate(4deg);
+    }
+
+    60% {
+        transform: translateX(-9px) rotate(-3deg);
+    }
+
+    80% {
+        transform: translateX(9px) rotate(3deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0);
+    }
+}
+
+/* ─── EXPLAINING BODY BOB ────────────────────────────────────── */
+.ta-wrap.ta-explaining .ta-image,
+.ta-wrap.ta-writeBoard .ta-image {
+    animation: talkBob 1.8s ease-in-out infinite;
+    transform-origin: 50% 100%;
+}
+
+@keyframes talkBob {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-4px) rotate(0.6deg);
+    }
+
+    75% {
+        transform: translateY(-2px) rotate(-0.5deg);
+    }
+}
+
+/* ─── ARM / HAND OVERLAYS (SVG absolute positioned) ─────────── */
+.ta-arm-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* right arm raise */
+.ta-wrap.ta-raiseRightHand .ta-arm-right,
+.ta-wrap.ta-waveRight .ta-arm-right {
+    animation: raiseRightArm 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes raiseRightArm {
+    from {
+        transform: rotate(0deg);
+        transform-origin: 72% 62%;
+    }
+
+    to {
+        transform: rotate(-70deg);
+        transform-origin: 72% 62%;
+    }
+}
+
+/* wave on top of raised */
+.ta-wrap.ta-waveRight .ta-arm-right {
+    animation: raiseRightArm 0.4s ease forwards, waveRight 0.45s 0.45s ease-in-out 5;
+}
+
+@keyframes waveRight {
+
+    0%,
+    100% {
+        transform: rotate(-70deg);
+        transform-origin: 72% 62%;
+    }
+
+    33% {
+        transform: rotate(-55deg) translateX(6px);
+        transform-origin: 72% 62%;
+    }
+
+    66% {
+        transform: rotate(-82deg) translateX(-4px);
+        transform-origin: 72% 62%;
+    }
+}
+
+/* left arm raise */
+.ta-wrap.ta-raiseLeftHand .ta-arm-left {
+    animation: raiseLeftArm 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes raiseLeftArm {
+    from {
+        transform: rotate(0deg);
+        transform-origin: 28% 62%;
+    }
+
+    to {
+        transform: rotate(70deg);
+        transform-origin: 28% 62%;
+    }
+}
+
+/* lower = animate back down (we just remove the class, but add a class for transition) */
+.ta-wrap.ta-lowerRightHand .ta-arm-right {
+    animation: lowerRightArm 0.4s ease forwards;
+}
+
+@keyframes lowerRightArm {
+    from {
+        transform: rotate(-70deg);
+        transform-origin: 72% 62%;
+    }
+
+    to {
+        transform: rotate(0deg);
+        transform-origin: 72% 62%;
+    }
+}
+
+.ta-wrap.ta-lowerLeftHand .ta-arm-left {
+    animation: lowerLeftArm 0.4s ease forwards;
+}
+
+@keyframes lowerLeftArm {
+    from {
+        transform: rotate(70deg);
+        transform-origin: 28% 62%;
+    }
+
+    to {
+        transform: rotate(0deg);
+        transform-origin: 28% 62%;
+    }
+}
+
+/* fold hands */
+.ta-wrap.ta-foldHands .ta-arms-fold {
+    opacity: 1;
+    animation: foldIn 0.5s ease forwards;
+}
+
+@keyframes foldIn {
+    from {
+        transform: scaleX(1.2) translateY(-10px);
+        opacity: 0;
+    }
+
+    to {
+        transform: scaleX(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ─── POINT AT BOARD ─────────────────────────────────────────── */
+.ta-pointer-arm {
+    position: absolute;
+    right: -2%;
+    top: 34%;
+    width: 48%;
+    transform-origin: 8% 50%;
+    animation: none;
+}
+
+.ta-wrap.ta-pointBoard .ta-pointer-arm,
+.ta-wrap.ta-underline .ta-pointer-arm,
+.ta-wrap.ta-highlight .ta-pointer-arm {
+    animation: extendPoint 0.5s cubic-bezier(0.34, 1.3, 0.64, 1) forwards;
+}
+
+@keyframes extendPoint {
+    from {
+        transform: rotate(0deg) scaleX(0.6);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotate(-15deg) scaleX(1);
+        opacity: 1;
+    }
+}
+
+/* ─── WRITE ON BOARD ─────────────────────────────────────────── */
+.ta-write-arm {
+    position: absolute;
+    right: 2%;
+    top: 32%;
+    width: 44%;
+    transform-origin: 8% 50%;
+}
+
+.ta-wrap.ta-writeBoard .ta-write-arm {
+    animation: writeMotion 0.9s ease-in-out infinite;
+}
+
+@keyframes writeMotion {
+    0% {
+        transform: rotate(-20deg) translate(0, 0);
+    }
+
+    20% {
+        transform: rotate(-25deg) translate(8px, -5px);
+    }
+
+    40% {
+        transform: rotate(-18deg) translate(16px, 2px);
+    }
+
+    60% {
+        transform: rotate(-22deg) translate(6px, 8px);
+    }
+
+    80% {
+        transform: rotate(-15deg) translate(-4px, 4px);
+    }
+
+    100% {
+        transform: rotate(-20deg) translate(0, 0);
+    }
+}
+
+/* ─── EXPRESSION OVERLAYS ────────────────────────────────────── */
+.ta-expression {
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 38%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s;
+}
+
+.ta-wrap.ta-smile .ta-expression.ta-smile-overlay {
+    opacity: 1;
+    animation: smileFade 0.4s ease;
+}
+
+.ta-wrap.ta-serious .ta-expression.ta-serious-overlay {
+    opacity: 1;
+    animation: smileFade 0.4s ease;
+}
+
+.ta-wrap.ta-surprised .ta-expression.ta-surprised-overlay {
+    opacity: 1;
+    animation: surprisedPop 0.35s cubic-bezier(0.34, 1.6, 0.64, 1);
+}
+
+@keyframes smileFade {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) scaleY(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) scaleY(1);
+    }
+}
+
+@keyframes surprisedPop {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.5) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) scale(1) translateY(0);
+    }
+}
+
+/* ─── HIGHLIGHT FLASH on board area ─────────────────────────── */
+.ta-board-highlight {
+    position: absolute;
+    top: 18%;
+    left: 0%;
+    width: 55%;
+    height: 32%;
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.ta-wrap.ta-highlight .ta-board-highlight {
+    opacity: 1;
+    animation: highlightPulse 1s ease-in-out 3;
+}
+
+.ta-wrap.ta-underline .ta-board-highlight {
+    height: 6%;
+    top: 40%;
+    opacity: 1;
+    animation: underlineDraw 0.8s ease forwards;
+}
+
+@keyframes highlightPulse {
+
+    0%,
+    100% {
+        opacity: 0.15;
+        background: rgba(251, 191, 36, 0.3);
+    }
+
+    50% {
+        opacity: 0.45;
+        background: rgba(251, 191, 36, 0.55);
+    }
+}
+
+@keyframes underlineDraw {
+    from {
+        transform: scaleX(0);
+        transform-origin: left;
+        opacity: 0.8;
+        background: rgba(248, 113, 113, 0.6);
+    }
+
+    to {
+        transform: scaleX(1);
+        transform-origin: left;
+        opacity: 0.6;
+        background: rgba(248, 113, 113, 0.5);
+    }
+}
+
+/* ─── AUTO-CONTENT REACTION INDICATOR ───────────────────────── */
+.ta-auto-label {
+    position: absolute;
+    top: -36px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    animation: labelBounce 0.4s cubic-bezier(0.34, 1.5, 0.64, 1);
+    box-shadow: 0 2px 12px #6366f155;
+    z-index: 20;
+}
+
+@keyframes labelBounce {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(8px) scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
+/* ─── TALKING MOUTH SPARKLE ──────────────────────────────────── */
+.ta-talk-dots {
+    position: absolute;
+    top: 46%;
+    left: 54%;
+    display: flex;
+    gap: 4px;
+    pointer-events: none;
+}
+
+.ta-wrap.ta-explaining .ta-talk-dots span,
+.ta-wrap.ta-writeBoard .ta-talk-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #a5b4fc;
+    animation: talkDot 0.6s ease-in-out infinite alternate;
+}
+
+.ta-talk-dots span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.ta-talk-dots span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes talkDot {
+    from {
+        transform: scaleY(0.4);
+        opacity: 0.4;
+    }
+
+    to {
+        transform: scaleY(1.5);
+        opacity: 1;
+    }
+}
+
+/* ─── IDLE BREATHE ───────────────────────────────────────────── */
+.ta-wrap.ta-idle .ta-image {
+    animation: idleBreathe 4s ease-in-out infinite;
+}
+
+@keyframes idleBreathe {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(1.012);
+    }
+}
+
+/* ─── KEYFRAME for dot pulse ─────────────────────────────────── */
+@keyframes dotPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1.5);
+        box-shadow: 0 0 12px var(--dot-color, #6366f1);
+    }
+}
